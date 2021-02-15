@@ -29,6 +29,7 @@ jobs:
         uses: webbertakken/unity-builder@v2.0-alpha-6
         with:
           unityVersion: 2019.4.16f1
+          allowDirtyBuild: true
           targetPlatform: Linux
       # Output
       - uses: actions/upload-artifact@v2
