@@ -30,7 +30,7 @@ jobs:
         with:
           unityVersion: 2019.4.16f1
           allowDirtyBuild: true
-          targetPlatform: Linux
+          targetPlatform: StandaloneLinux64
       # Output
       - uses: actions/upload-artifact@v2
         with:
