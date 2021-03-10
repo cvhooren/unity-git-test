@@ -1,8 +1,6 @@
 name: Actions
 
-on:
-  pull_request: {}
-  workflow_dispatch
+on: [pull_request, workflow_dispatch]
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -34,11 +32,12 @@ jobs:
           unityVersion: 2019.4.16f1
           allowDirtyBuild: true
           targetPlatform: Android
-      # Output
+      # Output build artifact
       - uses: actions/upload-artifact@v2
         with:
           name: Build
           path: build
+      # Output test results
       - uses: actions/upload-artifact@v2
         with:
          name: Test results
