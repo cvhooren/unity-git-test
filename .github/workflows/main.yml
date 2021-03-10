@@ -14,11 +14,15 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-      # Cache
-      - uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library
+      # Reclaim space
+      - name: Reclaim space
+        run: |
+             sudo apt-get remove -y azure-cli
+             sudo apt-get remove -y google-cloud-sdk
+             sudo rm -rf /usr/bin/firefox
+             sudo rm -rf /usr/bin/google-chrome-stable
+             sudo rm -rf "/usr/local/share/boost"
+             sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Test
       - name: Run tests
         uses: game-ci/unity-test-runner@v2
